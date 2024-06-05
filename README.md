@@ -1,5 +1,3 @@
-# palacinke-watering-system
-
 # Palacinke Watering System User Web App
 
 Welcome to the Palacinke Watering System User Web App! This application allows users to manage and monitor their automated watering systems with ease.
