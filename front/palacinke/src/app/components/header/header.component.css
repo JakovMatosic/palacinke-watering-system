@@ -1,0 +1,22 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5; /* Light gray background for the entire header */
+  }
+  
+  .palacinke {
+    background-color: lightgreen;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .watering-system {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
