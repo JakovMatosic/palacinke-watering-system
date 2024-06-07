@@ -9,21 +9,22 @@ import { PlantRequestBody } from '../../models/plantRequestBody';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule,MatDialogModule, MatButton],
+  imports: [MatIconModule, MatButtonModule, MatDialogModule, MatButton],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-
   constructor(private dialog: MatDialog, private plantService: PlantService) {}
 
-  addNewPlant(){
-    const dialogRef = this.dialog.open(DialogAddPlantComponent);
+  addNewPlant() {
+    const dialogRef = this.dialog.open(DialogAddPlantComponent, {
+      height: '30rem',
+      width: '35rem',
+    });
     dialogRef.afterClosed().subscribe((plantReq: PlantRequestBody) => {
-      if(plantReq) {
+      if (plantReq) {
         this.plantService.addPlant(plantReq);
       }
     });
   }
-
 }

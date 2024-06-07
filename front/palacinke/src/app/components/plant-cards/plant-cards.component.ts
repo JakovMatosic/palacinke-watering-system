@@ -17,26 +17,26 @@ export class PlantCardsComponent implements OnInit {
   constructor(private plantService: PlantService) {}
 
   ngOnInit(): void {
-    this.plantService.getAllPlants().subscribe(
-      (plants) => (this.plants = plants),
-      (error) => console.error('Failed to fetch plants', error)
-    );
-    // this.plants = [
-    //   {
-    //     id: '1',
-    //     name: 'Aloe Vera',
-    //     minHumidity: 30,
-    //     maxHumidity: 50,
-    //     currentHumidity: 40,
-    //   },
-    //   {
-    //     id: '2',
-    //     name: 'Spider Plant',
-    //     minHumidity: 40,
-    //     maxHumidity: 60,
-    //     currentHumidity: 45,
-    //   },
-    // ];
+    // this.plantService.getAllPlants().subscribe(
+    //   (plants) => (this.plants = plants),
+    //   (error) => console.error('Failed to fetch plants', error)
+    // );
+    this.plants = [
+      {
+        id: '1',
+        name: 'Aloe Vera',
+        minHumidity: 30,
+        maxHumidity: 50,
+        currentHumidity: 40,
+      },
+      {
+        id: '2',
+        name: 'Spider Plant',
+        minHumidity: 40,
+        maxHumidity: 60,
+        currentHumidity: 45,
+      },
+    ];
   }
 
   refreshHumidity(id: string): void {
