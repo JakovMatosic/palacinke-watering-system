@@ -14,8 +14,14 @@
 
 .card h3 {
   margin-top: 0;
+  font-weight: bold;
+  font-size: 1.2em; /* Adjust the size as needed */
 }
 
 .card p {
   margin: 8px 0;
+}
+
+.current-humidity {
+  font-weight: bold;
 }

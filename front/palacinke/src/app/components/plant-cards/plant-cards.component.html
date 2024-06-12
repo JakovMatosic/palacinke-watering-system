@@ -4,6 +4,26 @@
     <p>ID: {{ plant.id }}</p>
     <p>Min Humidity: {{ plant.minHumidity }}%</p>
     <p>Max Humidity: {{ plant.maxHumidity }}%</p>
-    <p>Current Humidity: {{ plant.currentHumidity }}%</p>
+    <p class="current-humidity">
+      Current Humidity:
+      <span
+        *ngIf="
+          plant.currentHumidity >= plant.minHumidity &&
+          plant.currentHumidity <= plant.maxHumidity
+        "
+        style="color: green"
+      >
+        {{ plant.currentHumidity }}%
+      </span>
+      <span
+        *ngIf="
+          plant.currentHumidity < plant.minHumidity ||
+          plant.currentHumidity > plant.maxHumidity
+        "
+        style="color: red"
+      >
+        {{ plant.currentHumidity }}%
+      </span>
+    </p>
   </div>
 </div>
