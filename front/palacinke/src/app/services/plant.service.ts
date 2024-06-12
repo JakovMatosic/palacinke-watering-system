@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, Subject, catchError, of } from 'rxjs';
 import { Plant } from '../models/plant';
 import { PlantRequestBody } from '../models/plantRequestBody';
 
@@ -9,6 +9,7 @@ import { PlantRequestBody } from '../models/plantRequestBody';
 })
 export class PlantService {
   private apiUrl = 'http://localhost:8080/api'; // Replace with your actual backend API URL
+  public plantRefreshSub = new Subject<Plant[]>();
 
   constructor(private http: HttpClient) {}
   
@@ -23,6 +24,14 @@ export class PlantService {
     return this.http
       .get<Plant[]>(`${this.apiUrl}/all`)
       .pipe(catchError(this.handleError<Plant[]>('getAllPlants', [])));
+  }
+
+  refreshAllPlants(): void {
+    this.http
+      .get<Plant[]>(`${this.apiUrl}/all`)
+      .pipe(catchError(this.handleError<Plant[]>('getAllPlants', []))).subscribe( (plants) => {
+        this.plantRefreshSub.next(plants);
+      });
   }
 
   getPlantHumidity(id: string): Observable<number> {

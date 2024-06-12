@@ -17,10 +17,8 @@ export class PlantCardsComponent implements OnInit {
   constructor(private plantService: PlantService) {}
 
   ngOnInit(): void {
-    // this.plantService.getAllPlants().subscribe(
-    //   (plants) => (this.plants = plants),
-    //   (error) => console.error('Failed to fetch plants', error)
-    // );
+    // this.plantService.getAllPlants().subscribe((plants) => (this.plants = plants));
+    this.plantService.plantRefreshSub.subscribe((plants) => (this.plants = plants));
     this.plants = [
       {
         id: '1',
@@ -37,18 +35,5 @@ export class PlantCardsComponent implements OnInit {
         currentHumidity: 45,
       },
     ];
-  }
-
-  refreshHumidity(id: string): void {
-    this.plantService.getPlantHumidity(id).subscribe(
-      (humidity) => {
-        const plantIndex = this.plants.findIndex((p) => p.id === id);
-        if (plantIndex !== -1) {
-          this.plants[plantIndex].currentHumidity = humidity;
-        }
-      },
-      (error) =>
-        console.error(`Failed to refresh humidity for plant ${id}`, error)
-    );
   }
 }

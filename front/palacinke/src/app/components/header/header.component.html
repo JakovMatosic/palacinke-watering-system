@@ -1,9 +1,8 @@
 <div class="header-container">
   <div class="center-content">
     <div class="palacinke">
-      Palacinke <span class="material-symbols-outlined">potted_plant</span>
+      <span class="material-symbols-outlined">potted_plant</span> Palačinke
     </div>
-    <div class="watering-system">Watering System</div>
   </div>
   <button
     mat-flat-button
@@ -12,5 +11,14 @@
     (click)="addNewPlant()"
   >
     Add Plant
+  </button>
+</div>
+<mat-divider></mat-divider>
+<div class="header-container">
+  <div class="watering-system">Watering System</div>
+
+  <button mat-button class="add-plant-button" color="primary" (click)="refreshHumidity()">
+    <!-- Add this button -->
+    <mat-icon>refresh</mat-icon> Refresh
   </button>
 </div>

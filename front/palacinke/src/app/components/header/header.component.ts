@@ -5,15 +5,23 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogAddPlantComponent } from '../dialog-add-plant/dialog-add-plant.component';
 import { PlantService } from '../../services/plant.service';
 import { PlantRequestBody } from '../../models/plantRequestBody';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatDialogModule, MatButton],
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatButton,
+    MatDividerModule,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  
   constructor(private dialog: MatDialog, private plantService: PlantService) {}
 
   addNewPlant() {
@@ -26,5 +34,9 @@ export class HeaderComponent {
         this.plantService.addPlant(plantReq);
       }
     });
+  }
+
+  refreshHumidity() {
+    this.plantService.refreshAllPlants();
   }
 }
