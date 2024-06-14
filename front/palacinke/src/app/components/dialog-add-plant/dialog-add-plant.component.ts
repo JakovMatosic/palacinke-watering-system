@@ -49,7 +49,7 @@ export class DialogAddPlantComponent implements OnInit {
 
   loadUnregisteredDevices(): void {
     this.plantService.getUnregisteredDevices().subscribe((devices) => {
-      this.unregisteredDevices = devices;
+      this.unregisteredDevices = devices.filter(device => device !== '-1');
     });
   }
 
