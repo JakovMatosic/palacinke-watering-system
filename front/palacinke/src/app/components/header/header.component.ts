@@ -31,7 +31,7 @@ export class HeaderComponent {
     });
     dialogRef.afterClosed().subscribe((plantReq: PlantRequestBody) => {
       if (plantReq) {
-        this.plantService.addPlant(plantReq);
+        this.plantService.addPlant(plantReq).subscribe();
       }
     });
   }
