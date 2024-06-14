@@ -16,20 +16,16 @@ Welcome to the Palacinke Watering System User Web App! This application allows u
 The Palacinke Watering System is designed to automate the process of watering plants in personal spaces and offices. 
 This web app serves as the user interface for the system, providing users with control and monitoring capabilities over their watering schedules, sensor data, and system configurations.
 
-## Future Features
+## Features
 
-- **Dashboard**: View the current status of the watering system, including active zones, water usage, and system health.
-- **Scheduling**: Set up and manage watering schedules for different zones.
-- **Sensor Data**: Monitor real-time data from soil moisture sensors, weather forecasts, and other relevant metrics.
-- **Notifications**: Receive alerts for important events such as low moisture levels or system malfunctions.
-- **User Management**: Manage user profiles and access levels.
-- **Reports**: Generate and view reports on water usage, system performance, and historical data.
-
+- **Dashboard**: View the current status of the watering system.
+- **Sensor Data**: Monitor real-time data from soil moisture sensors.
+  
 ## Technologies Used
 
 - **Frontend**: Angular
 - **Backend**: Spring Boot
-- **Database**: PostgreSQL
+- **Database**: docker
 
 ## Installation
 
