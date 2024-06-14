@@ -1,9 +1,17 @@
 <h2>Add New Plant</h2>
 <form [formGroup]="plantForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
+  <mat-form-field *ngIf="unregisteredDevices.length > 0; else noDevices">
     <mat-label>ID</mat-label>
-    <input matInput formControlName="id" required />
+    <mat-select formControlName="id" required>
+      <mat-option *ngFor="let device of unregisteredDevices" [value]="device">
+        {{ device }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
+
+  <ng-template #noDevices>
+    <p>{{ noDevicesMessage }}</p>
+  </ng-template>
 
   <mat-form-field>
     <mat-label>Name</mat-label>
@@ -22,6 +30,6 @@
 
   <div class="dialog-actions">
     <button mat-button color="warn" type="button" (click)="onCancel()">Cancel</button>
-    <button mat-button color="primary" type="submit">Submit</button>
+    <button mat-button color="primary" type="submit" [disabled]="unregisteredDevices.length === 0">Submit</button>
   </div>
 </form>

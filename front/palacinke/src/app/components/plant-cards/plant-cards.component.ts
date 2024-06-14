@@ -17,23 +17,23 @@ export class PlantCardsComponent implements OnInit {
   constructor(private plantService: PlantService) {}
 
   ngOnInit(): void {
-    // this.plantService.getAllPlants().subscribe((plants) => (this.plants = plants));
+    this.plantService.getAllPlants().subscribe((plants) => (this.plants = plants));
     this.plantService.plantRefreshSub.subscribe((plants) => (this.plants = plants));
-    this.plants = [
-      {
-        id: '1',
-        name: 'Aloe Vera',
-        minHumidity: 30,
-        maxHumidity: 50,
-        currentHumidity: 40,
-      },
-      {
-        id: '2',
-        name: 'Spider Plant',
-        minHumidity: 40,
-        maxHumidity: 60,
-        currentHumidity: 45,
-      },
-    ];
+    // this.plants = [
+    //   {
+    //     id: '1',
+    //     name: 'Aloe Vera',
+    //     minHumidity: 30,
+    //     maxHumidity: 50,
+    //     currentHumidity: 40,
+    //   },
+    //   {
+    //     id: '2',
+    //     name: 'Spider Plant',
+    //     minHumidity: 40,
+    //     maxHumidity: 60,
+    //     currentHumidity: 45,
+    //   },
+    // ];
   }
 }

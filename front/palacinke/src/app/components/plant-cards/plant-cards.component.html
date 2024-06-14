@@ -1,9 +1,9 @@
 <div class="card-container">
   <div class="card" *ngFor="let plant of plants">
     <h3>{{ plant.name }}</h3>
-    <p>ID: {{ plant.id }}</p>
-    <p>Min Humidity: {{ plant.minHumidity }}%</p>
-    <p>Max Humidity: {{ plant.maxHumidity }}%</p>
+    <p> <mat-icon>wb_sunny</mat-icon> ID: {{ plant.id }}</p>
+    <p> <mat-icon>keyboard_arrow_down</mat-icon> Min Humidity: {{ plant.minHumidity }}%</p>
+    <p> <mat-icon>keyboard_arrow_up</mat-icon> Max Humidity: {{ plant.maxHumidity }}%</p>
     <p class="current-humidity">
       Current Humidity:
       <span
